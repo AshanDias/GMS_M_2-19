@@ -149,3 +149,6 @@ public class GarbageRequest {
         this.vehicle_type_id = vehicle_type_id;
     }
 }
+
+
+

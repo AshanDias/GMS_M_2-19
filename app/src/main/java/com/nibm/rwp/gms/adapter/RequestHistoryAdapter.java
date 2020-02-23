@@ -42,8 +42,7 @@ public class RequestHistoryAdapter extends RecyclerView.Adapter<RequestHistoryAd
 
         RequestHistory requestHistory = productList.get(position);
         holder.mName.setText(requestHistory.getCustomer_name());
-        holder.mDateTime.setText(requestHistory.getUpdated_at());
-        holder.mCategory.setText(requestHistory.getCategory_id());
+        holder.mDateTime.setText(requestHistory.getRequest_date());
         holder.mStatus.setText(requestHistory.getStatus());
     }
 
@@ -60,9 +59,8 @@ public class RequestHistoryAdapter extends RecyclerView.Adapter<RequestHistoryAd
             super(itemView);
 
             mName = itemView.findViewById(R.id.layout_request_History_tv_name);
-            mCategory = itemView.findViewById(R.id.layout_request_History_tv_garbageCategory);
             mDateTime = itemView.findViewById(R.id.layout_request_tHistory_tv_dateTime);
-            mStatus = itemView.findViewById(R.id.layout_request_History_tv_status);
+            mStatus = itemView.findViewById(R.id.layout_request_History_tv_garbageCategory);
 
         }
     }

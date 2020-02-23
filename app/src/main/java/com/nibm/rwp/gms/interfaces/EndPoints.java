@@ -10,6 +10,7 @@ import com.nibm.rwp.gms.dto.PaymentHistory;
 import com.nibm.rwp.gms.dto.RequestHistory;
 import com.nibm.rwp.gms.dto.UcArea;
 import com.nibm.rwp.gms.dto.UcVehicleList;
+import com.nibm.rwp.gms.dto.UserFeedback;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import retrofit2.http.Url;
 
 public interface EndPoints {
@@ -37,11 +39,11 @@ public interface EndPoints {
     Call<List<CustomerRequest>> getDriverMap();
 
     // customer request history list
-    @GET("/customer/all/request")
+    @GET("/customer/request/email/w.l.n.ishara@gmail.com")
     Call<List<RequestHistory>> getRequestHistory();
 
     // customer payment history list
-    @GET("/customer/all/request")
+    @GET("/payment/history/email/w.l.n.ishara@gmail.com")
     Call<List<PaymentHistory>> getPaymentHistory();
 
 //    @GET("/customer/all/request/")
@@ -62,5 +64,9 @@ public interface EndPoints {
     //payment transaction
     @POST("/payment/approve")
     Call<JsonElement> setPaymentGatway(@Body PaymentGatway paymentGatway);
+
+    //Feedback activity
+    @POST("/post/feedback")
+    Call<JsonElement> setUserFeedback(@Body UserFeedback userFeedback);
 
 }

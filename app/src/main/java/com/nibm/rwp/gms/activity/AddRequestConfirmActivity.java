@@ -34,24 +34,16 @@ public class AddRequestConfirmActivity extends BaseActivity implements View.OnCl
         setToolbar(getResources().getString(R.string.activity_addrequest), AddRequestConfirmActivity.this);
         mEtName=findViewById(R.id.activity_add_payment_confirm_et_name);
 
-        mEtGarbageType=findViewById(R.id.activity_add_payment_confirm_et_Garbage_category);
-        mEtVehicleType=findViewById(R.id.activity_add_payment_confirm_et_vehicle_type);
-        mEtAreaType=findViewById(R.id.activity_add_payment_confirm_et_area_code);
+//        mEtGarbageType=findViewById(R.id.activity_add_payment_confirm_et_Garbage_category);
+//        mEtVehicleType=findViewById(R.id.activity_add_payment_confirm_et_vehicle_type);
+//        mEtAreaType=findViewById(R.id.activity_add_payment_confirm_et_area_code);
         mEtTotal=findViewById(R.id.activity_add_payment_confirm_et_total);
 
         Intent intent=getIntent();
-       // name=intent.getStringExtra("A_name");
-       // Toast.makeText(AddRequestConfirmActivity.this,name,Toast.LENGTH_SHORT).show();
-        //intent.getStringExtra("name")
-        this.mEtName.setText(intent.getStringExtra("A_name"));
 
-      //  this.mEtName.setText(intent.getStringExtra("email"));
-        this.mEtGarbageType.setText(intent.getStringExtra("categoryType"));
-        this.mEtVehicleType.setText(intent.getStringExtra("area"));
-        this.mEtAreaType.setText(intent.getStringExtra("vehicle"));
+        this.mEtName.setText(intent.getStringExtra("name"));
+
         this.mEtTotal.setText(intent.getStringExtra("total"));
-
-
 
         initView();
 
@@ -68,12 +60,12 @@ public class AddRequestConfirmActivity extends BaseActivity implements View.OnCl
 
         mEtName = findViewById(R.id.activity_add_payment_confirm_et_name);
         mEtName.setKeyListener(null);
-        mEtGarbageType = findViewById(R.id.activity_add_payment_confirm_et_Garbage_category);
-        mEtGarbageType.setKeyListener(null);
-        mEtAreaType = findViewById(R.id.activity_add_payment_confirm_et_area_code);
-        mEtAreaType.setKeyListener(null);
-        mEtVehicleType = findViewById(R.id.activity_add_payment_confirm_et_vehicle_type);
-        mEtVehicleType.setKeyListener(null);
+//        mEtGarbageType = findViewById(R.id.activity_add_payment_confirm_et_Garbage_category);
+//        mEtGarbageType.setKeyListener(null);
+//        mEtAreaType = findViewById(R.id.activity_add_payment_confirm_et_area_code);
+//        mEtAreaType.setKeyListener(null);
+//        mEtVehicleType = findViewById(R.id.activity_add_payment_confirm_et_vehicle_type);
+//        mEtVehicleType.setKeyListener(null);
         mEtTotal = findViewById(R.id.activity_add_payment_confirm_et_total);
         mEtTotal.setKeyListener(null);
         mBtnConfirm = findViewById(R.id.activity_add_payment_confirm_btn_done_payment);

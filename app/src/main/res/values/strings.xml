@@ -156,6 +156,7 @@
     <string name="alert_warning_text">Error</string>
     <string name="cancel_text">Cancel</string>
     <string name="yes_text">Yes</string>
+    <string name="ok_textx">OK</string>
     <string name="update_text">Update</string>
     <string name="remove_text">Remove</string>
     <string name="no_text">No</string>

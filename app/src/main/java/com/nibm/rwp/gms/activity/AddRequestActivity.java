@@ -70,7 +70,7 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
     private Button mBtnProgress;
     private EditText mEtDescription, mEtLocationLongTiute, mEtName, mEtContactNo, mEtAddress1, mEtAddress2, mEtAddress3, mEtLocationLatitute, mEtEmail;
     private ProgressBar mPbProgreassBar;
-
+    public String[] array= new String[2];
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
     TextView latTextView, lonTextView;
@@ -89,7 +89,7 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
 
 
     private ProgressDialog progressDialog;
-    public String total, name, categorytype, area, vehicle, userid, tests;
+    public static String total, name, categorytype, area, vehicle, userid, tests;
     private String description, names, address1, address2, address3, contact, email;
 
     @Override
@@ -127,9 +127,9 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
     }
 
     private void confirmDialog() {
-        initView();
 
-        Toast.makeText(AddRequestActivity.this,name,Toast.LENGTH_SHORT).show();
+        sendCustomerReq();
+
         final AlertDialog dialog = new AlertDialog.Builder(AddRequestActivity.this).create();
         AppUtill.showCustomConfirmAlert(dialog,
                 AddRequestActivity.this,
@@ -139,18 +139,15 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
                     @Override
                     public void onClick(View v) {
                         if (checkFiledValidation()){
-                            //initView();
+
                             dialog.dismiss();
 
                             sendCustomerReq();
-                            Intent intent = new Intent(AddRequestActivity.this, AddRequestConfirmActivity.class);
-                            intent.putExtra("A_name", name);
-                            intent.putExtra("email", email);
-                            intent.putExtra("categoryType", categorytype);
-                            intent.putExtra("area", area);
-                            intent.putExtra("total", total);
-                            intent.putExtra("vehicle", vehicle);
-                            startActivity(intent);
+                            Toast.makeText(AddRequestActivity.this,name,Toast.LENGTH_SHORT).show();
+                           Intent intent = new Intent(AddRequestActivity.this, AddRequestConfirmActivity.class);
+                           intent.putExtra("total",total);
+                           intent.putExtra("name",name);
+                          startActivity(intent);
                         }else{
                             Toast.makeText(AddRequestActivity.this,"Error",Toast.LENGTH_LONG).show();
                         }
@@ -283,7 +280,7 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
         return true;
     }
 
-    private void initView() {
+    public void initView() {
         mEtDescription = findViewById(R.id.activity_add_request_et_description);
         mEtLocationLongTiute = findViewById(R.id.activity_add_request_et_location_logtitte);
         mEtLocationLongTiute.setKeyListener(null);
@@ -345,9 +342,21 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
         return true;
     }
 
+
     @Override
     public void onClick(View v) {
+
+
+        //getCustomerReq();
+
+           // Toast.makeText(AddRequestActivity.this,  "total is   "+this.total, Toast.LENGTH_LONG).show();
+
+
+//
+//
+//       // confirmDialog();
         switch (v.getId()) {
+
             case R.id.activity_add_request_btn_progress:
                 if (checkFiledValidation()==true)
                 confirmDialog();
@@ -546,7 +555,10 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
         }
     }
 
-    private void sendCustomerReq() {
+//    JSONObject  root= new JSONObject();
+
+    private  void  sendCustomerReq() {
+
         try {
             showProgressDialogWithTitle("Uploading....");
             EndPoints service = RetrofitClient.getRetrofitInstance().create(EndPoints.class);
@@ -555,11 +567,13 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
                 @Override
                 public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
 
+                    hideProgressDialogWithTitle();
+
                     if (response.code() == 200) {
 
                         if (response.isSuccessful()) {
 
-                            hideProgressDialogWithTitle();
+
 //                            Intent intent = new Intent(AddRequestActivity.this, AddRequestConfirmActivity.class);
 //                            startActivity(intent);
                         }
@@ -568,9 +582,9 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
                     if (response != null) {
 
                         try {
-                            JSONObject root = new JSONObject(response.body().toString());
+                            JSONObject    root = new JSONObject(response.body().toString());
 
-                            userid = root.getString("customers_request_id");
+                           userid = root.getString("customers_request_id");
                             String test = root.getString("email");
                             name = root.getString("customer_name");
                             categorytype = root.getString("category_id");
@@ -578,10 +592,15 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
                             vehicle = root.getString("vehicle_type_id");
                             total = root.getString("total_payment");
 
+                             array[0]=total;
+                             array[1]=name;
+
                         } catch (Exception e) {
 
                         }
                     }
+
+
                 }
 
 
@@ -600,6 +619,12 @@ public class AddRequestActivity extends BaseActivity implements View.OnClickList
         } catch (Exception e) {
             Log.i(TAG, "Exception");
         }
+
+
+    }
+
+    public  void setProperty(){
+        mEtName.setText("aaaaaaaaa");
     }
 
     private GarbageRequest getCustomerReq() {

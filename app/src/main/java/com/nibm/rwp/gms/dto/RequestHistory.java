@@ -2,16 +2,7 @@ package com.nibm.rwp.gms.dto;
 
 public class RequestHistory {
    private String customer_name;
-   private String category_id;
-   private String updated_at;
-    private String status;
-
-    public RequestHistory(String customer_name, String category_id, String updated_at, String status) {
-        this.customer_name = customer_name;
-        this.category_id = category_id;
-        this.updated_at = updated_at;
-        this.status = status;
-    }
+   private String request_date;
 
     public String getCustomer_name() {
         return customer_name;
@@ -21,20 +12,12 @@ public class RequestHistory {
         this.customer_name = customer_name;
     }
 
-    public String getCategory_id() {
-        return category_id;
+    public String getRequest_date() {
+        return request_date;
     }
 
-    public void setCategory_id(String category_id) {
-        this.category_id = category_id;
-    }
-
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setRequest_date(String request_date) {
+        this.request_date = request_date;
     }
 
     public String getStatus() {
@@ -44,6 +27,15 @@ public class RequestHistory {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public RequestHistory(String customer_name, String request_date, String status) {
+        this.customer_name = customer_name;
+        this.request_date = request_date;
+        this.status = status;
+    }
+
+    private String status;
+
 
 
 }

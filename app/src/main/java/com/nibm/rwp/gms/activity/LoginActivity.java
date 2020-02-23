@@ -48,6 +48,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initView();
 
         sharedPreferences();
+        //testting purpose
+
+        mEtemail.setText("w.l.n.ishara@gmail.com");
+        mEtpassword.setText("12345678");
     }
 
     private void sharedPreferences() {

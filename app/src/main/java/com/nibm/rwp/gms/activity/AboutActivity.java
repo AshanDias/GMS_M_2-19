@@ -15,6 +15,7 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
 
         setToolbar(getResources().getString(R.string.activity_about), AboutActivity.this);
+        
     }
 
     @Override

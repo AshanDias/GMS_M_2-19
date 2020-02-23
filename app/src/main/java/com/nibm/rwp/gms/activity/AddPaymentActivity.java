@@ -2,6 +2,7 @@ package com.nibm.rwp.gms.activity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -63,7 +64,7 @@ public class AddPaymentActivity extends BaseActivity implements View.OnClickList
 
     private void sendPaymentDetails(){
         try {
-            Toast.makeText(AddPaymentActivity.this,"aaaa",Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(AddPaymentActivity.this,"aaaa",Toast.LENGTH_SHORT).show();
 
             EndPoints service = RetrofitClient.getRetrofitInstance().create(EndPoints.class);
             Call<JsonElement> call = service.setPaymentGatway(setUserPayment());
@@ -71,9 +72,10 @@ public class AddPaymentActivity extends BaseActivity implements View.OnClickList
                 @Override
                 public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
 
-                    Toast.makeText(AddPaymentActivity.this,"onResponse....." ,Toast.LENGTH_LONG).show();
-                    popUp();
-
+                  //  Toast.makeText(AddPaymentActivity.this,"onResponse....." ,Toast.LENGTH_LONG).show();
+                  //  popUp();
+                 //  Toast.makeText(AddPaymentActivity.this,"sending" ,Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(AddPaymentActivity.this,mEtCardNo.toString() ,Toast.LENGTH_LONG).show();
                 if (response.code()==200){
 
                         Toast.makeText(AddPaymentActivity.this,"Successfully....." ,Toast.LENGTH_LONG).show();
@@ -91,7 +93,7 @@ public class AddPaymentActivity extends BaseActivity implements View.OnClickList
                    // hideProgressDialogWithTitle();
 
                     String error = t.getMessage();
-                    Toast.makeText(AddPaymentActivity.this,"Error " +error,Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(AddPaymentActivity.this,"Error " +error,Toast.LENGTH_LONG).show();
                     //requestActivityErrorDialog();
                 }
             });
@@ -123,17 +125,26 @@ public class AddPaymentActivity extends BaseActivity implements View.OnClickList
         return true;
     }
 
-    private void popUp() {
+private void confirmDialog() {
 
-        final AlertDialog dialog = new AlertDialog.Builder(AddPaymentActivity.this).create();
-        AppUtill.showCustomStandardAlert(dialog,
-                AddPaymentActivity.this,
-                getResources().getString(R.string.payment_sucess),
-                getResources().getString(R.string.payment_sucess2),
-                getResources().getDrawable(R.drawable.icons8888),
-                null,
-                getResources().getString(R.string.ok_text), false);
-    }
+
+    final AlertDialog dialog = new AlertDialog.Builder(AddPaymentActivity.this).create();
+    AppUtill.showCustomConfirmAlert(dialog,
+            AddPaymentActivity.this,
+            getResources().getString(R.string.payment_sucess),
+           getResources().getString(R.string.payment_sucess2),
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        Intent intent = new Intent(AddPaymentActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                }
+            },
+            null,
+            getResources().getString(R.string.ok_text),
+            getResources().getString(R.string.no_text),
+            false);
+}
 
     public void SendDetails(){
         JSONObject payment = new JSONObject();
@@ -179,7 +190,7 @@ public class AddPaymentActivity extends BaseActivity implements View.OnClickList
             case R.id.activity_add_payment_btn_doneeeeeeeeeee:
                // SendDetails();
                 sendPaymentDetails();
-               // popUp();
+                confirmDialog();
         }
     }
 }

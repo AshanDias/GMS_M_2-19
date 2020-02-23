@@ -1,38 +1,40 @@
 package com.nibm.rwp.gms.dto;
 
 public class PaymentHistory {
-   private String customer_name;
-   private String created_at;
-    private String tele_no;
+    private String first_name;
 
-    public PaymentHistory(String customer_name, String created_at, String tele_no) {
-        this.customer_name = customer_name;
-        this.created_at = created_at;
-        this.tele_no = tele_no;
+    public PaymentHistory(String first_name, String total_payment, String date) {
+        this.first_name = first_name;
+        this.total_payment = total_payment;
+        this.date = date;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    private String total_payment;
+
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getTotal_payment() {
+        return total_payment;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setTotal_payment(String total_payment) {
+        this.total_payment = total_payment;
     }
 
-    public String getTele_no() {
-        return tele_no;
+    public String getDate() {
+        return date;
     }
 
-    public void setTele_no(String tele_no) {
-        this.tele_no = tele_no;
+    public void setDate(String date) {
+        this.date = date;
     }
+
+    private String date;
 
 }

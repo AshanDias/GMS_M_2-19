@@ -23,16 +23,37 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/layout_request_History_tv_name"
+                android:id="@+id/layout_request_History_tv_demo"
                 android:layout_marginTop="15dp"
-                android:textStyle="bold"
+                android:text="Name :"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/layout_request_History_tv_name"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/layout_request_History_tv_demo"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/layout_request_History_tv_demo2"
+                android:layout_below="@id/layout_request_History_tv_demo"
+                android:layout_marginTop="15dp"
+                android:text="Date :"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/layout_request_History_tv_demo2"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
                 android:textStyle="bold"
@@ -42,8 +63,21 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/layout_request_History_tv_demo3"
+                android:layout_below="@id/layout_request_History_tv_demo2"
+                android:layout_marginTop="15dp"
+                android:text="Status :"
+                android:layout_marginBottom="8dp"
                 android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/layout_request_History_tv_demo3"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="8dp"
                 android:paddingLeft="10dp"
                 android:textStyle="bold"
                 android:id="@+id/layout_request_History_tv_garbageCategory"
@@ -51,16 +85,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:layout_marginTop="5dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/layout_request_History_tv_status"
-                android:layout_below="@id/layout_request_History_tv_garbageCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+<!--            <TextView-->
+<!--                android:id="@+id/layout_request_History_tv_demo4"-->
+<!--                android:layout_below="@id/layout_request_History_tv_demo3"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:text="Request Date :"-->
+<!--                android:textStyle="bold"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_toRightOf="@id/layout_request_History_tv_demo4"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:id="@+id/layout_request_History_tv_status"-->
+<!--                android:layout_below="@id/layout_request_History_tv_garbageCategory"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
 
         </RelativeLayout>
 

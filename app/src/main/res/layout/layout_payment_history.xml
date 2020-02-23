@@ -26,8 +26,18 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/hasarel"
+                android:text="Name :"
+                android:layout_marginTop="15dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
                 android:id="@+id/layout_payment_History_tv_name"
                 android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/hasarel"
                 android:textStyle="bold"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
@@ -35,25 +45,69 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/hasarel2"
+                android:text="Total :"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/hasarel"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
                 android:textStyle="bold"
-                android:id="@+id/layout_payment_History_tv_date"
+                android:layout_toRightOf="@id/hasarel2"
+                android:id="@+id/layout_payment_History_tv_address1"
                 android:layout_below="@id/layout_payment_History_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/hasarel3"
+                android:text="Date :"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/hasarel2"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
                 android:textStyle="bold"
+                android:layout_toRightOf="@id/hasarel3"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/layout_item_payment_History_tv_contact"
-                android:layout_below="@id/layout_payment_History_tv_date"
+                android:id="@+id/layout_item_payment_History_tv_address2"
+                android:layout_below="@id/layout_payment_History_tv_address1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:id="@+id/layout_item_payment_History_tv_contact"-->
+<!--                android:layout_below="@+id/layout_item_payment_History_tv_address2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:id="@+id/layout_item_payment_History_tv_date"-->
+<!--                android:layout_below="@+id/layout_item_payment_History_tv_contact"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
 
         </RelativeLayout>
 

@@ -50,7 +50,7 @@ public class CustomerRequestAdapter extends RecyclerView.Adapter<CustomerRequest
         holder.mAddress2.setText(customerRequest.getAddress_2());
         holder.mAddress3.setText(customerRequest.getAddress_3());
         holder.mContactNo.setText(customerRequest.getTele_no());
-       // holder.mContactNo.setText(customerRequest.getLatitude());
+       // holder.mAddress2.setText(customerRequest.getLatitude());
 
       //  CustomerRequest req = new CustomerRequest();
         final Double lat=Double.parseDouble(customerRequest.getLatitude());

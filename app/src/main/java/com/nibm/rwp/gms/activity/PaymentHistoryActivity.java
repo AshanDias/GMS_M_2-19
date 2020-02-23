@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.nibm.rwp.gms.R;
 import com.nibm.rwp.gms.adapter.CustomerRequestAdapter;
@@ -51,7 +52,8 @@ public class PaymentHistoryActivity extends BaseActivity {
 
 //        SharedPreferences prf = getSharedPreferences("details", MODE_PRIVATE);
 //        String email = prf.getString("email", "");
-
+        SharedPreferences prf = getSharedPreferences("details", MODE_PRIVATE);
+        String email = prf.getString("email", "");
         EndPoints service = RetrofitClient.getRetrofitInstance().create(EndPoints.class);
         Call<List<PaymentHistory>> call = service.getPaymentHistory();
         call.enqueue(new Callback<List<PaymentHistory>>() {
